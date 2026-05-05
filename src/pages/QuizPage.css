@@ -140,6 +140,95 @@
 .qtype-badge.blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(10,132,255,0.25); }
 .qtype-badge.orange { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(255,159,10,0.25); }
 .qtype-badge.green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(48,209,88,0.25); }
+.qtype-badge.purple { background: rgba(191,90,242,0.15); color: #BF5AF2; border: 1px solid rgba(191,90,242,0.25); }
+
+/* ===== TRUE/FALSE ===== */
+.tf-options {
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+}
+
+.tf-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all var(--transition);
+  position: relative;
+}
+
+.tf-btn:not(:disabled):hover {
+  border-color: var(--quiz-color, var(--blue));
+  background: var(--bg-card2);
+  transform: translateY(-4px);
+}
+
+.tf-icon {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tf-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tf-btn.selected {
+  border-color: #BF5AF2;
+  background: rgba(191,90,242,0.1);
+  box-shadow: 0 0 0 1px rgba(191,90,242,0.3);
+}
+
+.tf-btn.selected .tf-icon,
+.tf-btn.selected .tf-label {
+  color: #BF5AF2;
+}
+
+.tf-btn.correct {
+  border-color: var(--green) !important;
+  background: var(--green-dim) !important;
+  animation: correctPop 0.4s ease;
+}
+
+.tf-btn.correct .tf-icon,
+.tf-btn.correct .tf-label {
+  color: var(--green);
+}
+
+.tf-btn.wrong {
+  border-color: var(--red) !important;
+  background: var(--red-dim) !important;
+  animation: shake 0.4s ease;
+}
+
+.tf-btn.wrong .tf-icon,
+.tf-btn.wrong .tf-label {
+  color: var(--red);
+}
+
+.tf-btn.dim {
+  opacity: 0.35;
+}
+
+.tf-btn:disabled { cursor: default; }
+
+@media (max-width: 600px) {
+  .tf-options { flex-direction: column; }
+  .tf-btn { padding: 24px 20px; flex-direction: row; gap: 14px; }
+  .tf-icon { font-size: 24px; }
+  .tf-label { font-size: 16px; }
+}
 
 .qnum {
   font-size: 12px;

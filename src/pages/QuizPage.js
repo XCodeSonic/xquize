@@ -46,6 +46,15 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
     };
   }, []);
 
+  const handleTFAnswer = (val) => {
+    if (revealed) return;
+    const wasAnswered = answers[currentIdx] !== undefined;
+    setAnswers(prev => ({ ...prev, [currentIdx]: val }));
+    if (!wasAnswered) {
+      startCountdownIfNeeded(currentIdx);
+    }
+  };
+
   const handleMCQAnswer = (optionIdx) => {
     if (revealed) return;
     const wasAnswered = answers[currentIdx] !== undefined;
@@ -99,6 +108,8 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
       let correct = false;
       if (q.type === 'multiple_choice') {
         correct = ans === q.answer;
+      } else if (q.type === 'true_false') {
+        correct = ans === q.answer;
       } else if (q.type === 'identification') {
         const accepted = q.acceptedAnswers || [q.answer];
         correct = accepted.some(a => a.toLowerCase() === (ans || '').toLowerCase());
@@ -147,6 +158,16 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
           <QuestionHeader question={question} index={currentIdx} total={totalQ} />
 
           <div className="question-body">
+            {question.type === 'true_false' && (
+              <TFQuestion
+                question={question}
+                answer={answers[currentIdx]}
+                revealed={revealed}
+                onSelect={handleTFAnswer}
+                timerLeft={changeTimers[currentIdx]}
+                timerRunning={timerRunning[currentIdx]}
+              />
+            )}
             {question.type === 'multiple_choice' && (
               <MCQQuestion
                 question={question}
@@ -274,6 +295,7 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
 function QuestionHeader({ question, index, total }) {
   const typeLabels = {
     multiple_choice: { label: 'Multiple Choice', color: 'blue' },
+    true_false: { label: 'True or False', color: 'purple' },
     identification: { label: 'Identification', color: 'orange' },
     enumeration: { label: 'Enumeration', color: 'green' },
   };
@@ -454,6 +476,48 @@ function EnumQuestion({ question, answer, revealed, inputs, onInputChange, onAdd
         </div>
       )}
       {timerRunning && <ChangeTimer seconds={timerLeft ?? CHANGE_WINDOW} />}
+    </div>
+  );
+}
+
+/* ===== TRUE/FALSE QUESTION ===== */
+function TFQuestion({ question, answer, revealed, onSelect, timerLeft, timerRunning }) {
+  const options = [
+    { val: true, label: 'True', icon: '✓' },
+    { val: false, label: 'False', icon: '✗' },
+  ];
+
+  return (
+    <div className="tf-options">
+      {options.map(({ val, label, icon }) => {
+        const isSelected = answer === val;
+        const isCorrect = val === question.answer;
+        let state = '';
+        if (revealed) {
+          if (isCorrect) state = 'correct';
+          else if (isSelected && !isCorrect) state = 'wrong';
+          else state = 'dim';
+        } else if (isSelected) {
+          state = 'selected';
+        }
+
+        return (
+          <button
+            key={String(val)}
+            className={`tf-btn ${state}`}
+            onClick={() => onSelect(val)}
+            disabled={revealed}
+          >
+            <span className="tf-icon">{icon}</span>
+            <span className="tf-label">{label}</span>
+            {revealed && isCorrect && <span className="option-icon">✓</span>}
+            {revealed && isSelected && !isCorrect && <span className="option-icon">✗</span>}
+          </button>
+        );
+      })}
+      {timerRunning && !revealed && (
+        <ChangeTimer seconds={timerLeft ?? CHANGE_WINDOW} />
+      )}
     </div>
   );
 }

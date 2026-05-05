@@ -133,9 +133,9 @@ export default function ResultsPage({ results, quiz, onHome, onRetry }) {
 }
 
 function TypeBreakdown({ results }) {
-  const types = ['multiple_choice', 'identification', 'enumeration'];
-  const labels = { multiple_choice: 'MCQ', identification: 'ID', enumeration: 'Enum' };
-  const colors = { multiple_choice: 'var(--blue)', identification: 'var(--orange)', enumeration: 'var(--green)' };
+  const types = ['multiple_choice', 'true_false', 'identification', 'enumeration'];
+  const labels = { multiple_choice: 'MCQ', true_false: 'T/F', identification: 'ID', enumeration: 'Enum' };
+  const colors = { multiple_choice: 'var(--blue)', true_false: '#BF5AF2', identification: 'var(--orange)', enumeration: 'var(--green)' };
 
   return (
     <div className="breakdown-card">
@@ -168,16 +168,18 @@ function TypeBreakdown({ results }) {
 
 function ReviewItem({ result, index, expanded, onToggle }) {
   const { question, userAnswer, correct } = result;
-  const typeLabels = { multiple_choice: 'MCQ', identification: 'ID', enumeration: 'Enum' };
+  const typeLabels = { multiple_choice: 'MCQ', true_false: 'T/F', identification: 'ID', enumeration: 'Enum' };
 
   const formatAnswer = (q, ans) => {
-    if (!ans && ans !== 0) return '(no answer)';
+    if (ans === null || ans === undefined) return '(no answer)';
+    if (q.type === 'true_false') return ans === true ? 'True' : 'False';
     if (q.type === 'multiple_choice') return q.options[ans] || '?';
     if (q.type === 'enumeration') return Array.isArray(ans) ? ans.join(', ') : ans;
     return ans;
   };
 
   const correctAnswer = (q) => {
+    if (q.type === 'true_false') return q.answer === true ? 'True' : 'False';
     if (q.type === 'multiple_choice') return q.options[q.answer];
     if (q.type === 'enumeration') return (q.answers || []).slice(0, q.minRequired).join(', ');
     return q.answer;
@@ -189,7 +191,7 @@ function ReviewItem({ result, index, expanded, onToggle }) {
         <div className="review-item-left">
           <span className="review-status">{correct ? '✓' : '✗'}</span>
           <span className="review-qnum">Q{index + 1}</span>
-          <span className={`review-type ${question.type === 'multiple_choice' ? 'blue' : question.type === 'identification' ? 'orange' : 'green'}`}>
+          <span className={`review-type ${question.type === 'multiple_choice' ? 'blue' : question.type === 'true_false' ? 'purple' : question.type === 'identification' ? 'orange' : 'green'}`}>
             {typeLabels[question.type]}
           </span>
         </div>

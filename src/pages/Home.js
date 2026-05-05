@@ -75,7 +75,7 @@ export default function Home({ onStart }) {
             </div>
             <div className="stat-divider" />
             <div className="stat">
-              <span className="stat-num">3</span>
+              <span className="stat-num">4</span>
               <span className="stat-label">Types</span>
             </div>
           </div>
@@ -108,6 +108,7 @@ export default function Home({ onStart }) {
 function QuizCard({ quiz, index, hovered, onHover, onLeave, onStart }) {
   const typeCount = {
     multiple_choice: quiz.questions.filter(q => q.type === 'multiple_choice').length,
+    true_false: quiz.questions.filter(q => q.type === 'true_false').length,
     identification: quiz.questions.filter(q => q.type === 'identification').length,
     enumeration: quiz.questions.filter(q => q.type === 'enumeration').length,
   };
@@ -139,6 +140,9 @@ function QuizCard({ quiz, index, hovered, onHover, onLeave, onStart }) {
         <div className="card-types">
           {typeCount.multiple_choice > 0 && (
             <span className="type-badge blue">{typeCount.multiple_choice} MCQ</span>
+          )}
+          {typeCount.true_false > 0 && (
+            <span className="type-badge purple">{typeCount.true_false} T/F</span>
           )}
           {typeCount.identification > 0 && (
             <span className="type-badge orange">{typeCount.identification} ID</span>

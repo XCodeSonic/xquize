@@ -314,6 +314,12 @@
   border: 1px solid rgba(10,132,255,0.2);
 }
 
+.type-badge.purple {
+  background: rgba(191,90,242,0.15);
+  color: #BF5AF2;
+  border: 1px solid rgba(191,90,242,0.2);
+}
+
 .type-badge.orange {
   background: var(--orange-dim);
   color: var(--orange);

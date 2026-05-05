@@ -255,6 +255,7 @@
 .review-type.blue { background: var(--blue-dim); color: var(--blue); }
 .review-type.orange { background: var(--orange-dim); color: var(--orange); }
 .review-type.green { background: var(--green-dim); color: var(--green); }
+.review-type.purple { background: rgba(191,90,242,0.15); color: #BF5AF2; }
 
 .review-toggle {
   font-size: 11px;
