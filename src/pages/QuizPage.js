@@ -42,7 +42,7 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
   // Cleanup intervals
   useEffect(() => {
     return () => {
-      Object.values(intervalRef.current).forEach(clearInterval);
+      Object.values(intervalRef.current).forEach(clearInterval); 
     };
   }, []);
 
