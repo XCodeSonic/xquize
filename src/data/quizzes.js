@@ -1605,5 +1605,520 @@ export const quizzes = [
         explanation: "ETL: Extract (pull data from sources), Transform (clean and restructure), Load (push into data warehouse)."
       }
     ]
+  },
+  {
+    id: "unit6",
+    title: "WebSockets & Reverb — Foundations",
+    subtitle: "Laravel Real-Time Series · Lesson 1",
+    emoji: "📡",
+    color: "#30D158",
+    week: "Lesson 1",
+    description: "Understand the real-time problem, the WebSocket model, what Laravel Reverb is, and how to get it running.",
+    questions: [
+      // --- MULTIPLE CHOICE ---
+      {
+        type: "multiple_choice",
+        question: "What does Laravel Reverb let you avoid using?",
+        options: [
+          "A local database",
+          "A third-party service like Pusher or Ably",
+          "A queue worker",
+          "An .env file"
+        ],
+        answer: 1,
+        explanation: "Reverb runs inside your own app — no third-party service like Pusher or Ably required."
+      },
+      {
+        type: "multiple_choice",
+        question: "What protocol does Reverb speak, allowing Laravel Echo to work with zero rewrites?",
+        options: [
+          "WebSocket protocol only",
+          "HTTP/2 protocol",
+          "The Pusher protocol",
+          "The MQTT protocol"
+        ],
+        answer: 2,
+        explanation: "Reverb speaks the Pusher protocol, so Laravel Echo on the front end works with zero rewrites."
+      },
+      {
+        type: "multiple_choice",
+        question: "In the HTTP vs WebSocket comparison, what must happen before a traditional HTTP client gets anything back?",
+        options: [
+          "The client must ASK",
+          "The server must push",
+          "A handshake must stay open",
+          "A queue worker must run"
+        ],
+        answer: 0,
+        explanation: "Under Traditional HTTP, the client must ASK before it gets anything back — it's a request/response model."
+      },
+      {
+        type: "multiple_choice",
+        question: "According to the lecture, what does achieving real-time updates over HTTP require?",
+        options: [
+          "A single persistent connection",
+          "Constant polling",
+          "A WebSocket handshake",
+          "Server-initiated pushes"
+        ],
+        answer: 1,
+        explanation: "Real-time = constant polling → wasted requests & lag, since HTTP's server can't initiate, it can only reply."
+      },
+      {
+        type: "multiple_choice",
+        question: "What kind of connection does a WebSocket maintain after the initial handshake?",
+        options: [
+          "It closes and reopens for every message",
+          "One handshake, then the connection stays open — persistent and full-duplex",
+          "It becomes read-only",
+          "It requires re-authentication per message"
+        ],
+        answer: 1,
+        explanation: "WebSocket: one handshake, then the connection STAYS open, and either side can send a message at any moment."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which artisan command starts the Reverb WebSocket server?",
+        options: [
+          "php artisan reverb:install",
+          "php artisan queue:work",
+          "php artisan reverb:start",
+          "php artisan serve"
+        ],
+        answer: 2,
+        explanation: "php artisan reverb:start boots the server, printing 'INFO Reverb server started on 0.0.0.0:8080'."
+      },
+      {
+        type: "multiple_choice",
+        question: "What default port does the Reverb server start on, per the lecture's terminal output?",
+        options: ["3000", "6001", "8080", "9000"],
+        answer: 2,
+        explanation: "The terminal output shows: INFO Reverb server started on 0.0.0.0:8080."
+      },
+      {
+        type: "multiple_choice",
+        question: "On Laravel 11+, which single command scaffolds Reverb and Echo together?",
+        options: [
+          "php artisan reverb:install",
+          "composer require laravel/reverb",
+          "php artisan install:broadcasting",
+          "npm install laravel-echo"
+        ],
+        answer: 2,
+        explanation: "On Laravel 11+, php artisan install:broadcasting is the single command that scaffolds Reverb + Echo for you."
+      },
+      // --- TRUE/FALSE ---
+      {
+        type: "true_false",
+        question: "A WebSocket connection requires a brand-new handshake for every message sent.",
+        answer: false,
+        explanation: "False. One handshake, then the connection STAYS open — either side can send a message at any moment."
+      },
+      {
+        type: "true_false",
+        question: "Laravel Reverb is described as a first-party, self-hosted WebSocket server built by the Laravel team.",
+        answer: true,
+        explanation: "True. Reverb is a fast, scalable WebSocket server built by the Laravel team, fully self-hosted."
+      },
+      {
+        type: "true_false",
+        question: "php artisan install:broadcasting installs the laravel/reverb package, publishes config/broadcasting.php, adds Reverb keys to .env, and installs Echo + pusher-js via npm.",
+        answer: true,
+        explanation: "True. This single command scaffolds everything: the package, the config, the .env keys, and the front-end packages."
+      },
+      {
+        type: "true_false",
+        question: "The manual install process for older apps is: composer require laravel/reverb, then php artisan reverb:install, then npm install --save-dev laravel-echo pusher-js.",
+        answer: true,
+        explanation: "True. This is the exact manual install sequence shown for older apps that don't have install:broadcasting."
+      },
+      {
+        type: "true_false",
+        question: "In the lecture's polling diagram, polling is described as efficient and always delivers updates instantly.",
+        answer: false,
+        explanation: "False. Polling involves repeated requests, mostly wasted — and the update still arrives late."
+      },
+      // --- IDENTIFICATION ---
+      {
+        type: "identification",
+        question: "Name the fast, scalable, first-party WebSocket server built by the Laravel team.",
+        answer: "Reverb",
+        acceptedAnswers: ["reverb", "laravel reverb"],
+        explanation: "Reverb is Laravel's official, Pusher-compatible WebSocket server."
+      },
+      {
+        type: "identification",
+        question: "Name the process manager mentioned as what runs Reverb in production, instead of running it by hand.",
+        answer: "Supervisor",
+        acceptedAnswers: ["supervisor"],
+        explanation: "In production it runs under Supervisor, not by hand (covered in Lesson 9)."
+      },
+      {
+        type: "identification",
+        question: "Name the default port shown in the lecture's terminal output when Reverb starts.",
+        answer: "8080",
+        acceptedAnswers: ["8080", "port 8080", ":8080"],
+        explanation: "INFO Reverb server started on 0.0.0.0:8080 — the default port is 8080."
+      },
+      {
+        type: "identification",
+        question: "Name the reverb:start flag that prints every connection and message in the console.",
+        answer: "--debug",
+        acceptedAnswers: ["--debug", "debug", "debug flag"],
+        explanation: "--debug prints every connection and message: your best friend for Lessons 2–6."
+      },
+      // --- ENUMERATION ---
+      {
+        type: "enumeration",
+        question: "List all 4 lesson objectives of Lesson 1: Foundations — WebSockets & Reverb.",
+        answers: [
+          "The real-time problem",
+          "The WebSocket model",
+          "What Reverb is",
+          "Get it running"
+        ],
+        minRequired: 4,
+        explanation: "The 4 objectives: the real-time problem, the WebSocket model, what Reverb is, and getting it running."
+      },
+      {
+        type: "enumeration",
+        question: "List the 4 steps in 'Where Reverb fits in,' in order.",
+        answers: ["Event fired", "Queue", "Reverb", "Echo client"],
+        minRequired: 4,
+        explanation: "The path: Event fired → Queue → Reverb → Echo client, from app dispatch to the browser updating instantly."
+      },
+      {
+        type: "enumeration",
+        question: "List the 3 features of Laravel Reverb described on the 'What is Laravel Reverb?' slide.",
+        answers: ["Built for speed", "Drop-in compatible", "Fully self-hosted"],
+        minRequired: 3,
+        explanation: "3 features: Built for speed (async event loop), Drop-in compatible (same protocol as Pusher), Fully self-hosted (no SaaS bills or rate limits)."
+      }
+    ]
+  },
+  {
+    id: "unit7",
+    title: "Broadcasting Basics",
+    subtitle: "Laravel Real-Time Series · Lesson 2",
+    emoji: "📢",
+    color: "#0A84FF",
+    week: "Lesson 2",
+    description: "Fire your first event into the pipeline — the ShouldBroadcast contract and the three methods that shape every broadcast.",
+    questions: [
+      // --- MULTIPLE CHOICE ---
+      {
+        type: "multiple_choice",
+        question: "Which artisan command creates a broadcast event class?",
+        options: ["make:model", "make:event", "make:controller", "make:listener"],
+        answer: 1,
+        explanation: "php artisan make:event MessageSent creates app/Events/MessageSent.php."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which trait, used alongside Dispatchable, lets you safely pass Eloquent models in an event's constructor?",
+        options: ["Dispatchable", "SerializesModels", "Broadcastable", "Queueable"],
+        answer: 1,
+        explanation: "SerializesModels lets you pass Eloquent models safely, and is used with the Dispatchable trait."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which contract is described as the 'on-switch' that tells Laravel an event should go out over WebSockets?",
+        options: ["ShouldQueue", "ShouldBroadcast", "Dispatchable", "Broadcastable"],
+        answer: 1,
+        explanation: "Implementing ShouldBroadcast is the on-switch: Laravel now sends this event to your broadcaster (Reverb) whenever it's dispatched."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which variant broadcasts synchronously, bypassing the queue, blocking the request until sent?",
+        options: ["ShouldBroadcast", "ShouldBroadcastNow", "ShouldQueue", "BroadcastNow"],
+        answer: 1,
+        explanation: "ShouldBroadcastNow is synchronous — it broadcasts immediately, bypassing the queue, and blocks the request until sent."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which method returns the channel(s) an event is broadcast on?",
+        options: ["broadcastAs()", "broadcastWith()", "broadcastOn()", "broadcastChannel()"],
+        answer: 2,
+        explanation: "broadcastOn() returns the channel(s) the event is broadcast on; clients listening on that channel receive it."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which channel type is described as public — anyone can listen, no auth required?",
+        options: ["Channel", "PrivateChannel", "PresenceChannel", "BroadcastChannel"],
+        answer: 0,
+        explanation: "Channel is public — anyone can listen, no auth. PrivateChannel requires authorization, PresenceChannel adds a who-is-here list."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which method sets the name clients listen for, instead of the full namespaced event class name?",
+        options: ["broadcastOn()", "broadcastAs()", "broadcastWith()", "broadcastName()"],
+        answer: 1,
+        explanation: "broadcastAs() sets the name clients listen for. Skip it and Laravel uses the full event class name."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which method controls exactly what payload data is sent to clients?",
+        options: ["broadcastOn()", "broadcastAs()", "broadcastWith()", "broadcastData()"],
+        answer: 2,
+        explanation: "broadcastWith() returns the payload sent to clients. Skip it and Laravel ships all public properties of the event."
+      },
+      // --- TRUE/FALSE ---
+      {
+        type: "true_false",
+        question: "If broadcastWith() is not defined, Laravel ships all public properties of the event.",
+        answer: true,
+        explanation: "True. Skip broadcastWith() and Laravel ships all public properties — often too much."
+      },
+      {
+        type: "true_false",
+        question: "broadcast(new MessageSent($message)); dispatches the event into the broadcast pipeline.",
+        answer: true,
+        explanation: "True. broadcast() dispatches the event; event() also works as an alternative shown in the lecture."
+      },
+      {
+        type: "true_false",
+        question: "ShouldBroadcastNow queues the broadcast so it does not block the request.",
+        answer: false,
+        explanation: "False. ShouldBroadcastNow is synchronous and blocks the request until sent — it's ShouldBroadcast that queues it."
+      },
+      {
+        type: "true_false",
+        question: "A PrivateChannel requires authorization, while a public Channel does not.",
+        answer: true,
+        explanation: "True. Channel is public with no auth; PrivateChannel requires authorization (covered in Lesson 4)."
+      },
+      {
+        type: "true_false",
+        question: "When broadcastAs() is set, Echo listeners need a leading dot, like .listen('.message.sent').",
+        answer: true,
+        explanation: "True. This is called out as a reason to be careful when renaming: When set, Echo listeners need a leading dot."
+      },
+      // --- IDENTIFICATION ---
+      {
+        type: "identification",
+        question: "Name the trait that lets you pass Eloquent models safely inside a broadcast event's constructor.",
+        answer: "SerializesModels",
+        acceptedAnswers: ["serializesmodels", "serializes models"],
+        explanation: "SerializesModels lets you pass Eloquent models safely; it's used alongside the Dispatchable trait."
+      },
+      {
+        type: "identification",
+        question: "Name the contract that is Laravel's 'on-switch,' telling it to send an event to the broadcaster (Reverb) whenever it's dispatched.",
+        answer: "ShouldBroadcast",
+        acceptedAnswers: ["shouldbroadcast", "should broadcast"],
+        explanation: "Implementing ShouldBroadcast is the on-switch for sending an event to Reverb whenever it's dispatched."
+      },
+      {
+        type: "identification",
+        question: "Name the channel type that is private and also maintains a who-is-here list.",
+        answer: "PresenceChannel",
+        acceptedAnswers: ["presencechannel", "presence channel"],
+        explanation: "PresenceChannel is private, plus it maintains a who-is-here list (covered in Lesson 5)."
+      },
+      {
+        type: "identification",
+        question: "Name the artisan command that must be kept running so ShouldBroadcast events pushed onto the queue actually get sent.",
+        answer: "queue:work",
+        acceptedAnswers: ["queue:work", "php artisan queue:work"],
+        explanation: "php artisan queue:work is kept running alongside reverb:start so queued broadcasts are serialized and sent."
+      },
+      // --- ENUMERATION ---
+      {
+        type: "enumeration",
+        question: "List the 3 methods that shape a broadcast — covering channel, name, and payload.",
+        answers: ["broadcastOn", "broadcastAs", "broadcastWith"],
+        minRequired: 3,
+        explanation: "broadcastOn (channel), broadcastAs (name), broadcastWith (payload) — the three methods that shape every broadcast."
+      },
+      {
+        type: "enumeration",
+        question: "List the 4 lesson objectives of Lesson 2: Broadcasting Basics.",
+        answers: ["Create an event", "ShouldBroadcast", "Shape the broadcast", "Trace the flow"],
+        minRequired: 4,
+        explanation: "The 4 objectives: create an event, ShouldBroadcast, shape the broadcast, and trace the flow."
+      },
+      {
+        type: "enumeration",
+        question: "List the 4 stages of the broadcast pipeline traced in Lesson 2.",
+        answers: ["Event", "Queue", "Reverb", "Client"],
+        minRequired: 4,
+        explanation: "Event (ShouldBroadcast marks it) → Queue (worker serializes & sends) → Reverb (pushes to the channel) → Client (Echo receives)."
+      }
+    ]
+  },
+  {
+    id: "unit8",
+    title: "useMemo · useCallback · useRef",
+    subtitle: "React Hooks · Performance & References",
+    emoji: "⚛️",
+    color: "#FF9F0A",
+    week: "React Hooks",
+    description: "Three hooks for remembering things between renders — cache a value, keep a function stable, and hold onto data without re-rendering.",
+    questions: [
+      // --- MULTIPLE CHOICE ---
+      {
+        type: "multiple_choice",
+        question: "What does useMemo return, compared to useCallback?",
+        options: [
+          "useMemo returns a function; useCallback returns a value",
+          "useMemo returns a cached value; useCallback returns the function itself",
+          "Both return the exact same thing",
+          "Neither returns anything usable"
+        ],
+        answer: 1,
+        explanation: "useMemo caches a VALUE, returning whatever the function computes. useCallback caches a FUNCTION, returning the function itself, identity intact."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which hook keeps a function's identity stable between renders, until a dependency changes?",
+        options: ["useMemo", "useCallback", "useRef", "useEffect"],
+        answer: 1,
+        explanation: "useCallback returns the same function instance between renders — until a dependency changes."
+      },
+      {
+        type: "multiple_choice",
+        question: "Which hook holds a mutable value that survives renders, without triggering a re-render when it changes?",
+        options: ["useMemo", "useCallback", "useRef", "useState"],
+        answer: 2,
+        explanation: "useRef holds a mutable .current that survives renders. Changing it does NOT trigger a re-render."
+      },
+      {
+        type: "multiple_choice",
+        question: "According to the lecture, useCallback(fn, deps) is exactly equivalent to which expression?",
+        options: [
+          "useMemo(() => fn, deps)",
+          "useMemo(fn, deps)",
+          "useRef(fn)",
+          "useEffect(fn, deps)"
+        ],
+        answer: 0,
+        explanation: "In fact: useCallback(fn, deps) is exactly useMemo(() => fn, deps) — one memoizes the function instead of its result."
+      },
+      {
+        type: "multiple_choice",
+        question: "According to 'Why these hooks exist,' what happens on every render?",
+        options: [
+          "Nothing changes between renders",
+          "The whole function body re-runs, recomputing values and recreating functions from scratch",
+          "Only state updates run",
+          "Only refs are updated"
+        ],
+        answer: 1,
+        explanation: "Every render re-runs the whole function body — recomputing values and recreating functions from scratch."
+      },
+      {
+        type: "multiple_choice",
+        question: "What problem does combining React.memo with useCallback solve?",
+        options: [
+          "It prevents infinite loops in useEffect",
+          "It stops a memoized child from re-rendering just because of a fresh function prop each render",
+          "It caches network responses",
+          "It removes the need for props entirely"
+        ],
+        answer: 1,
+        explanation: "React.memo compares props by reference; useCallback keeps a function prop identical so the memo check passes and the child does not re-render."
+      },
+      {
+        type: "multiple_choice",
+        question: "What must you attach a ref to in order to get the real DOM node placed into .current?",
+        options: ["A useState call", "A JSX element", "A useEffect hook", "A useMemo call"],
+        answer: 1,
+        explanation: "Attach a ref to a JSX element (e.g. <input ref={inputRef} />) and React puts the real DOM node in .current."
+      },
+      {
+        type: "multiple_choice",
+        question: "What rule of thumb closes the lecture regarding these three hooks?",
+        options: [
+          "Always use them by default in every component",
+          "Don't optimize prematurely — reach for them when you have a real cost, not by default",
+          "Only use them inside class components",
+          "Avoid useRef entirely in modern React"
+        ],
+        answer: 1,
+        explanation: "Rules of thumb: Don't optimize prematurely. Reach for these when you have a real cost — not by default."
+      },
+      // --- TRUE/FALSE ---
+      {
+        type: "true_false",
+        question: "useMemo recomputes its value on every single render, regardless of its dependency array.",
+        answer: false,
+        explanation: "False. useMemo runs the function only when a dependency changes; otherwise it returns the cached result."
+      },
+      {
+        type: "true_false",
+        question: "Mutating a ref's .current property does NOT trigger a re-render.",
+        answer: true,
+        explanation: "True. Updating .current is silent — no re-render, unlike useState."
+      },
+      {
+        type: "true_false",
+        question: "useCallback returns the value a function computes, rather than the function itself.",
+        answer: false,
+        explanation: "False. useCallback returns the FUNCTION itself, with a stable identity — useMemo is the one that returns a computed value."
+      },
+      {
+        type: "true_false",
+        question: "The lecture advises against reading or writing a ref's .current during render.",
+        answer: true,
+        explanation: "True. One of the 'ref vs state' bullet points explicitly warns: Don't read/write .current during render."
+      },
+      {
+        type: "true_false",
+        question: "A new function prop passed to a React.memo'd child causes it to re-render even when nothing meaningful changed, unless the function is wrapped in useCallback.",
+        answer: true,
+        explanation: "True. Without useCallback, memo is defeated by the new function each render, per 'Where useCallback pays off.'"
+      },
+      // --- IDENTIFICATION ---
+      {
+        type: "identification",
+        question: "Name the hook that caches an expensive computed value so it isn't recalculated every render.",
+        answer: "useMemo",
+        acceptedAnswers: ["usememo", "use memo"],
+        explanation: "useMemo runs the function only when a dependency changes; otherwise it returns the cached result."
+      },
+      {
+        type: "identification",
+        question: "Name the hook used to reach the DOM by attaching a ref to a JSX element.",
+        answer: "useRef",
+        acceptedAnswers: ["useref", "use ref"],
+        explanation: "useRef's 'other job' is reaching the DOM — attach ref={...} and React fills .current with the node."
+      },
+      {
+        type: "identification",
+        question: "Name the React API that skips a child's re-render when its props are unchanged, comparing them by reference.",
+        answer: "React.memo",
+        acceptedAnswers: ["react.memo", "reactmemo", "memo"],
+        explanation: "React.memo skips a re-render when props are unchanged — but a fresh function prop looks changed every time without useCallback."
+      },
+      {
+        type: "identification",
+        question: "In the useRef timer example (Timer.jsx), name the function called on intervalRef.current to stop the timer.",
+        answer: "clearInterval",
+        acceptedAnswers: ["clearinterval", "clearinterval(intervalref.current)"],
+        explanation: "const stop = () => { clearInterval(intervalRef.current); }; — clearInterval stops the timer stored in the ref."
+      },
+      // --- ENUMERATION ---
+      {
+        type: "enumeration",
+        question: "List all 3 hooks covered in this lecture.",
+        answers: ["useMemo", "useCallback", "useRef"],
+        minRequired: 3,
+        explanation: "The three hooks: useMemo (cache a value), useCallback (cache a function), useRef (persist, no render)."
+      },
+      {
+        type: "enumeration",
+        question: "List the 3 reasons re-renders 'redo everything,' as given in the lecture.",
+        answers: ["Recomputation", "New references", "Cascading renders"],
+        minRequired: 3,
+        explanation: "Recomputation (expensive calculations re-run), New references (objects/functions recreated), Cascading renders (new function props defeat memoized children)."
+      },
+      {
+        type: "enumeration",
+        question: "List the 4 lesson objectives from this React Hooks lecture.",
+        answers: ["useMemo", "useCallback", "useRef", "When to use them"],
+        minRequired: 4,
+        explanation: "The 4 objectives: useMemo, useCallback, useRef, and recognizing when to use them (avoiding premature optimization)."
+      }
+    ]
   }
 ];
