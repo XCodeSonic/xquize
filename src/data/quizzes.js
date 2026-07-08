@@ -1605,5 +1605,604 @@ export const quizzes = [
         explanation: "ETL: Extract (pull data from sources), Transform (clean and restructure), Load (push into data warehouse)."
       }
     ]
+  },
+  {
+    id: "unit6",
+    title: "WebSockets & Reverb — Foundations",
+    subtitle: "Laravel Real-Time Series · Lesson 1",
+    emoji: "📡",
+    color: "#30D158",
+    week: "Lesson 1",
+    description: "Understand the real-time problem, the WebSocket model, what Laravel Reverb is, and how to get it running.",
+    questions: [
+  // ---------------------------
+  // MULTIPLE CHOICE
+  // ---------------------------
+  {
+    type: "multiple_choice",
+    question: "According to the lesson objectives, what problem explains why request/response HTTP can't push?",
+    options: [
+      "The real-time problem",
+      "The WebSocket model",
+      "What Reverb is",
+      "Get it running"
+    ],
+    answer: 0,
+    explanation: "The lesson objective states: 'The real-time problem — Why request/response HTTP can't push, and what polling costs you.'"
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the HTTP vs WebSocket comparison, what must the client do before it gets anything back in traditional HTTP?",
+    options: [
+      "Stay connected",
+      "Ask",
+      "Push updates",
+      "Authenticate"
+    ],
+    answer: 1,
+    explanation: "Traditional HTTP: 'Client must ASK before it gets anything back.'"
+  },
+  {
+    type: "multiple_choice",
+    question: "After the initial handshake, what happens to a WebSocket connection?",
+    options: [
+      "It closes immediately.",
+      "It stays open.",
+      "It restarts every request.",
+      "It becomes read-only."
+    ],
+    answer: 1,
+    explanation: "The slide states: 'One handshake, then the connection STAYS open.'"
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the lesson, who built Laravel Reverb?",
+    options: [
+      "The PHP Foundation",
+      "The Laravel team",
+      "The Pusher team",
+      "The React team"
+    ],
+    answer: 1,
+    explanation: "The slide says Reverb is 'built by the Laravel team.'"
+  },
+  {
+    type: "multiple_choice",
+    question: "Which protocol does Reverb speak?",
+    options: [
+      "HTTP",
+      "MQTT",
+      "The Pusher protocol",
+      "FTP"
+    ],
+    answer: 2,
+    explanation: "The slide states that Reverb 'speaks the Pusher protocol.'"
+  },
+  {
+    type: "multiple_choice",
+    question: "Which Artisan command scaffolds Reverb and Echo on Laravel 11+?",
+    options: [
+      "php artisan reverb:start",
+      "php artisan install:broadcasting",
+      "php artisan queue:work",
+      "php artisan reverb:install"
+    ],
+    answer: 1,
+    explanation: "The lesson shows 'php artisan install:broadcasting' for Laravel 11+."
+  },
+  {
+    type: "multiple_choice",
+    question: "What is the default Reverb port shown in the .env example?",
+    options: [
+      "3000",
+      "6001",
+      "8080",
+      "9000"
+    ],
+    answer: 2,
+    explanation: "The .env example shows REVERB_PORT=8080."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which Artisan command starts the Reverb server?",
+    options: [
+      "php artisan reverb:install",
+      "php artisan install:broadcasting",
+      "php artisan reverb:start",
+      "php artisan serve"
+    ],
+    answer: 2,
+    explanation: "The lesson shows 'php artisan reverb:start'."
+  },
+
+  // ---------------------------
+  // TRUE / FALSE
+  // ---------------------------
+  {
+    type: "true_false",
+    question: "Traditional HTTP uses a request/response model.",
+    answer: true,
+    explanation: "The slide labels Traditional HTTP as 'Request / response.'"
+  },
+  {
+    type: "true_false",
+    question: "A WebSocket connection opens and closes for every message.",
+    answer: false,
+    explanation: "The slide says the connection stays open after one handshake."
+  },
+  {
+    type: "true_false",
+    question: "Reverb runs inside your own app.",
+    answer: true,
+    explanation: "The slide states that Reverb runs inside your own app."
+  },
+  {
+    type: "true_false",
+    question: "Polling is described as repeated requests, mostly wasted, and the update still arrives late.",
+    answer: true,
+    explanation: "This wording comes directly from the Polling vs. Live Push slide."
+  },
+  {
+    type: "true_false",
+    question: "The --debug flag prints every connection and message.",
+    answer: true,
+    explanation: "The lesson states: '--debug prints every connection and message.'"
   }
+]
+  },
+  {
+    id: "unit7",
+    title: "Broadcasting Basics",
+    subtitle: "Laravel Real-Time Series · Lesson 2",
+    emoji: "📢",
+    color: "#0A84FF",
+    week: "Lesson 2",
+    description: "Fire your first event into the pipeline — the ShouldBroadcast contract and the three methods that shape every broadcast.",
+    questions: [
+  // ---------------------------
+  // MULTIPLE CHOICE
+  // ---------------------------
+  {
+    type: "multiple_choice",
+    question: "Which Artisan command creates a new event class?",
+    options: [
+      "php artisan make:model",
+      "php artisan make:event",
+      "php artisan make:listener",
+      "php artisan make:controller"
+    ],
+    answer: 1,
+    explanation: "The lesson uses 'php artisan make:event MessageSent'."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which contract tells Laravel an event should go out over WebSockets?",
+    options: [
+      "ShouldQueue",
+      "ShouldBroadcast",
+      "Dispatchable",
+      "SerializesModels"
+    ],
+    answer: 1,
+    explanation: "The lesson states that ShouldBroadcast is the contract that tells Laravel an event should go out over WebSockets."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which method returns the channel(s) the event is broadcast on?",
+    options: [
+      "broadcastAs()",
+      "broadcastWith()",
+      "broadcastOn()",
+      "broadcastTo()"
+    ],
+    answer: 2,
+    explanation: "broadcastOn() returns the channel(s) the event is broadcast on."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which channel type is public and requires no authorization?",
+    options: [
+      "Channel",
+      "PrivateChannel",
+      "PresenceChannel",
+      "BroadcastChannel"
+    ],
+    answer: 0,
+    explanation: "Channel is public—anyone can listen. No auth."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which method sets the name clients listen for?",
+    options: [
+      "broadcastOn()",
+      "broadcastAs()",
+      "broadcastWith()",
+      "broadcastName()"
+    ],
+    answer: 1,
+    explanation: "broadcastAs() sets the name clients listen for."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which method returns the payload sent to clients?",
+    options: [
+      "broadcastOn()",
+      "broadcastAs()",
+      "broadcastWith()",
+      "broadcastPayload()"
+    ],
+    answer: 2,
+    explanation: "broadcastWith() returns the payload sent to clients."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which interface broadcasts immediately by bypassing the queue?",
+    options: [
+      "ShouldBroadcast",
+      "ShouldBroadcastNow",
+      "Dispatchable",
+      "Queueable"
+    ],
+    answer: 1,
+    explanation: "ShouldBroadcastNow broadcasts immediately, bypassing the queue."
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the lesson, what command should remain running to send queued broadcasts?",
+    options: [
+      "php artisan serve",
+      "php artisan queue:work",
+      "php artisan migrate",
+      "php artisan cache:clear"
+    ],
+    answer: 1,
+    explanation: "The lesson shows 'php artisan queue:work' running together with Reverb."
+  },
+
+  // ---------------------------
+  // TRUE / FALSE
+  // ---------------------------
+  {
+    type: "true_false",
+    question: "An event is a plain PHP class that carries data until you make it broadcastable.",
+    answer: true,
+    explanation: "This sentence appears on the 'Create an event' slide."
+  },
+  {
+    type: "true_false",
+    question: "SerializesModels lets you pass Eloquent models safely.",
+    answer: true,
+    explanation: "The lesson states that SerializesModels lets you pass Eloquent models safely."
+  },
+  {
+    type: "true_false",
+    question: "ShouldBroadcast pushes the broadcast onto the queue and sends it by a worker.",
+    answer: true,
+    explanation: "The lesson describes ShouldBroadcast as queued and sent by a worker."
+  },
+  {
+    type: "true_false",
+    question: "PrivateChannel is public and requires no authorization.",
+    answer: false,
+    explanation: "PrivateChannel requires authorization."
+  },
+  {
+    type: "true_false",
+    question: "If broadcastWith() is omitted, Laravel ships all public properties of the event.",
+    answer: true,
+    explanation: "The lesson states that skipping broadcastWith() broadcasts all public properties."
+  },
+
+  // ---------------------------
+  // IDENTIFICATION
+  // ---------------------------
+  {
+    type: "identification",
+    question: "Name the contract that tells Laravel an event should go out over WebSockets.",
+    answer: "ShouldBroadcast",
+    acceptedAnswers: [
+      "ShouldBroadcast",
+      "shouldbroadcast"
+    ],
+    explanation: "ShouldBroadcast is the contract that tells Laravel an event should go out over WebSockets."
+  },
+  {
+    type: "identification",
+    question: "Name the trait that lets you pass Eloquent models safely.",
+    answer: "SerializesModels",
+    acceptedAnswers: [
+      "SerializesModels",
+      "serializesmodels"
+    ],
+    explanation: "SerializesModels lets you pass Eloquent models safely."
+  },
+  {
+    type: "identification",
+    question: "Name the method that sets the name clients listen for.",
+    answer: "broadcastAs",
+    acceptedAnswers: [
+      "broadcastAs",
+      "broadcastAs()"
+    ],
+    explanation: "broadcastAs() sets the name clients listen for."
+  },
+  {
+    type: "identification",
+    question: "Name the command that starts the queue worker.",
+    answer: "php artisan queue:work",
+    acceptedAnswers: [
+      "php artisan queue:work",
+      "queue:work"
+    ],
+    explanation: "The lesson keeps 'php artisan queue:work' running."
+  },
+
+  // ---------------------------
+  // ENUMERATION
+  // ---------------------------
+  {
+    type: "enumeration",
+    question: "List the four lesson objectives.",
+    answers: [
+      "Create an event",
+      "ShouldBroadcast",
+      "Shape the broadcast",
+      "Trace the flow"
+    ],
+    minRequired: 4,
+    explanation: "These are the four lesson objectives shown on the lesson objectives slide."
+  },
+  {
+    type: "enumeration",
+    question: "List the four stages of the broadcast pipeline.",
+    answers: [
+      "Event",
+      "Queue",
+      "Reverb",
+      "Client"
+    ],
+    minRequired: 4,
+    explanation: "The broadcast pipeline is Event → Queue → Reverb → Client."
+  },
+  {
+    type: "enumeration",
+    question: "List the three broadcast methods discussed in the lesson.",
+    answers: [
+      "broadcastOn",
+      "broadcastAs",
+      "broadcastWith"
+    ],
+    minRequired: 3,
+    explanation: "The lesson covers broadcastOn(), broadcastAs(), and broadcastWith()."
+  }
+]
+  },
+  {
+    id: "unit8",
+    title: "useMemo · useCallback · useRef",
+    subtitle: "React Hooks · Performance & References",
+    emoji: "⚛️",
+    color: "#FF9F0A",
+    week: "React Hooks",
+    description: "Three hooks for remembering things between renders — cache a value, keep a function stable, and hold onto data without re-rendering.",
+    questions: [
+  // ---------------------------
+  // MULTIPLE CHOICE
+  // ---------------------------
+  {
+    type: "multiple_choice",
+    question: "According to the lesson, what does useMemo cache?",
+    options: [
+      "A function",
+      "A DOM node",
+      "A value",
+      "A component"
+    ],
+    answer: 2,
+    explanation: "The lesson states that useMemo caches a VALUE."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which hook keeps a function's identity stable between renders?",
+    options: [
+      "useMemo",
+      "useRef",
+      "useCallback",
+      "useState"
+    ],
+    answer: 2,
+    explanation: "The lesson states that useCallback keeps a function's identity stable between renders."
+  },
+  {
+    type: "multiple_choice",
+    question: "Which hook holds a mutable value without triggering a re-render?",
+    options: [
+      "useEffect",
+      "useRef",
+      "useMemo",
+      "useState"
+    ],
+    answer: 1,
+    explanation: "useRef holds a mutable .current that survives renders without triggering a re-render."
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the lesson, what happens on every render?",
+    options: [
+      "Only state updates run.",
+      "The whole function body re-runs.",
+      "Only refs are recreated.",
+      "Nothing changes."
+    ],
+    answer: 1,
+    explanation: "Every render re-runs the whole function body."
+  },
+  {
+    type: "multiple_choice",
+    question: "What does useCallback return?",
+    options: [
+      "A cached value",
+      "A JSX element",
+      "The function itself",
+      "A ref object"
+    ],
+    answer: 2,
+    explanation: "useCallback returns the FUNCTION itself."
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the lesson, React.memo compares props by what?",
+    options: [
+      "Value",
+      "Reference",
+      "Length",
+      "Order"
+    ],
+    answer: 1,
+    explanation: "The lesson states that React.memo compares props by reference."
+  },
+  {
+    type: "multiple_choice",
+    question: "Where does React place the real DOM node when using useRef?",
+    options: [
+      ".value",
+      ".current",
+      ".element",
+      ".node"
+    ],
+    answer: 1,
+    explanation: "React puts the real DOM node in .current."
+  },
+  {
+    type: "multiple_choice",
+    question: "According to the rules of thumb, when should you use these hooks?",
+    options: [
+      "In every component",
+      "Only in class components",
+      "When you have a real cost",
+      "Only with React.memo"
+    ],
+    answer: 2,
+    explanation: "Reach for these when you have a real cost—not by default."
+  },
+
+  // ---------------------------
+  // TRUE / FALSE
+  // ---------------------------
+  {
+    type: "true_false",
+    question: "useMemo recomputes only when a dependency changes.",
+    answer: true,
+    explanation: "The lesson states this directly."
+  },
+  {
+    type: "true_false",
+    question: "Changing ref.current triggers a re-render.",
+    answer: false,
+    explanation: "Changing .current does NOT trigger a re-render."
+  },
+  {
+    type: "true_false",
+    question: "useCallback returns the function itself.",
+    answer: true,
+    explanation: "The lesson states that useCallback returns the function itself."
+  },
+  {
+    type: "true_false",
+    question: "React fills .current with the DOM node after attaching a ref to a JSX element.",
+    answer: true,
+    explanation: "This is stated on the 'Reaching the DOM' slide."
+  },
+  {
+    type: "true_false",
+    question: "The lesson recommends optimizing prematurely.",
+    answer: false,
+    explanation: "The rules of thumb say: Don't optimize prematurely."
+  },
+
+  // ---------------------------
+  // IDENTIFICATION
+  // ---------------------------
+  {
+    type: "identification",
+    question: "Name the hook that caches a value.",
+    answer: "useMemo",
+    acceptedAnswers: [
+      "useMemo",
+      "usememo"
+    ],
+    explanation: "useMemo caches a value."
+  },
+  {
+    type: "identification",
+    question: "Name the hook that caches a function.",
+    answer: "useCallback",
+    acceptedAnswers: [
+      "useCallback",
+      "usecallback"
+    ],
+    explanation: "useCallback caches a function."
+  },
+  {
+    type: "identification",
+    question: "Name the hook that stores a mutable .current value.",
+    answer: "useRef",
+    acceptedAnswers: [
+      "useRef",
+      "useref"
+    ],
+    explanation: "useRef stores a mutable .current value."
+  },
+  {
+    type: "identification",
+    question: "Name the React API that skips a re-render when props are unchanged.",
+    answer: "React.memo",
+    acceptedAnswers: [
+      "React.memo",
+      "react.memo",
+      "memo"
+    ],
+    explanation: "React.memo skips a re-render when props are unchanged."
+  },
+
+  // ---------------------------
+  // ENUMERATION
+  // ---------------------------
+  {
+    type: "enumeration",
+    question: "List the four lesson objectives.",
+    answers: [
+      "useMemo",
+      "useCallback",
+      "useRef",
+      "When to use them"
+    ],
+    minRequired: 4,
+    explanation: "These are the lesson objectives shown in the PDF."
+  },
+  {
+    type: "enumeration",
+    question: "List the three reasons re-renders redo everything.",
+    answers: [
+      "Recomputation",
+      "New references",
+      "Cascading renders"
+    ],
+    minRequired: 3,
+    explanation: "These are listed on the 'Re-renders redo everything' slide."
+  },
+  {
+    type: "enumeration",
+    question: "List the three hooks covered in the lesson.",
+    answers: [
+      "useMemo",
+      "useCallback",
+      "useRef"
+    ],
+    minRequired: 3,
+    explanation: "These are the three hooks covered in the lesson."
+  }
+]
+  }
+
 ];
