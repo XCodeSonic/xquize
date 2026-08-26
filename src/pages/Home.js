@@ -53,14 +53,14 @@ export default function Home({ onStart }) {
         <header className="home-header">
           <div className="home-badge">
             <span className="badge-dot" />
-            Advanced Database Management System
+            Quiz Arena
           </div>
           <h1 className="home-title">
-            DBMS<br />
-            <span className="title-accent">Quiz Arena</span>
+            XCODE<br />
+            <span className="title-accent">Quize Arena</span>
           </h1>
           <p className="home-subtitle">
-            Master your database knowledge across 5 units.<br />
+            Test your knowledge across every quiz set.<br />
             Choose a quiz below to begin your challenge.
           </p>
           <div className="home-stats">
@@ -98,7 +98,7 @@ export default function Home({ onStart }) {
 
         {/* Footer */}
         <footer className="home-footer">
-          <p>Module 3 · Advanced DBMS · Units 1–5</p>
+          <p>XCODE Quize Arena</p>
         </footer>
       </div>
     </div>
