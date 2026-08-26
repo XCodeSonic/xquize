@@ -1,6 +1,1521 @@
 export const quizzes = [
   {
     id: "unit1",
+    title: "Unit 1 IoT",
+    subtitle: "Introduction to Electronic Components and Breadboarding",
+    emoji: "⚛️",
+    color: "#FF9F0A",
+    week: "3rd week",
+    description: "Building the foundation: where electronic components come together to create functional circuits.",
+    questions: [
+      // --- UNIT 1 QUIZ ---
+      {
+        type: "multiple_choice",
+        question: "What is a resistor?",
+        options: [
+          "An electronic component that limits or controls the flow of electric current in a circuit.",
+          "A component that temporarily stores electrical energy.",
+          "A board used to create circuits.",
+          "A flexible wire used to connect electronic components."
+        ],
+        answer: 0,
+        explanation: "A resistor is an electronic component that limits or controls the flow of electric current in a circuit."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the unit of resistance?",
+        options: ["Volt (V)", "Ampere (A)", "Ohm (Ω)", "Watt (W)"],
+        answer: 2,
+        explanation: "Ω (ohm) is the unit of resistance."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the main purpose of a resistor?",
+        options: [
+          "To provide easy access to voltage and ground",
+          "To protect components, such as LEDs, from receiving too much current",
+          "To temporarily store electrical energy",
+          "To control the flow of current by using a switch"
+        ],
+        answer: 1,
+        explanation: "The main purpose of a resistor is to protect components, such as LEDs, from receiving too much current."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which resistor has a fixed resistance value that cannot be adjusted?",
+        options: [
+          "Variable resistor",
+          "Thermistor",
+          "Fixed resistor",
+          "Carbon composition resistor"
+        ],
+        answer: 2,
+        explanation: "A fixed resistor has a fixed resistance value that cannot be adjusted."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which resistor has an adjustable resistance value?",
+        options: [
+          "Fixed resistor",
+          "Variable resistor",
+          "Carbon composition resistor",
+          "Thermistor"
+        ],
+        answer: 1,
+        explanation: "A variable resistor has an adjustable resistance value."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is a thermistor?",
+        options: [
+          "A type of resistor whose resistance is dependent on temperature",
+          "A type of fixed resistor whose resistance cannot be adjusted",
+          "A component that stores electrical energy in a static electric field",
+          "A flexible wire used without soldering"
+        ],
+        answer: 0,
+        explanation: "A thermistor is a type of resistor whose resistance is dependent on temperature."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Why is color-coding used on carbon resistors?",
+        options: [
+          "Carbon resistors are small, so their R value in ohms is marked using a color-coding system.",
+          "Colors are used to indicate the type of breadboard.",
+          "Colors are used to identify jumper wire types.",
+          "Colors are used to show the power source."
+        ],
+        answer: 0,
+        explanation: "Carbon resistors are small, so their R value in ohms is marked using a color-coding system."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What do the colors represent in the resistor color-coding system?",
+        options: [
+          "Voltage levels",
+          "Numerical values",
+          "Breadboard connections",
+          "Types of capacitors"
+        ],
+        answer: 1,
+        explanation: "The colors represent numerical values."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What do capacitors temporarily store?",
+        options: [
+          "Electrical energy in the form of a static electric field",
+          "Current in the form of a power rail",
+          "Voltage in the form of a jumper wire",
+          "Resistance in the form of a color code"
+        ],
+        answer: 0,
+        explanation: "Capacitors temporarily store electrical energy in the form of a static electric field."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is a breadboard used to create?",
+        options: [
+          "Color resistor codes",
+          "Circuits and connections between different sensors and actuators",
+          "Static electric fields",
+          "Only series circuits"
+        ],
+        answer: 1,
+        explanation: "A breadboard is used to create circuits and connections between different sensors and actuators."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is a breadboard also referred to as?",
+        options: [
+          "Soldered breadboard",
+          "Solderless breadboard",
+          "Variable breadboard",
+          "Power breadboard"
+        ],
+        answer: 1,
+        explanation: "A breadboard is also referred to as a solderless breadboard."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Each set of how many vertically connected holes lets you plug in component leads?",
+        options: ["Three", "Four", "Five", "Ten"],
+        answer: 2,
+        explanation: "Each set of five vertically connected holes lets you plug in component leads."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What do the power rails on a breadboard provide easy access to?",
+        options: [
+          "Only current",
+          "Voltage and ground",
+          "Only resistance",
+          "Only component leads"
+        ],
+        answer: 1,
+        explanation: "Power rails provide easy access to voltage and ground."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is an electric circuit?",
+        options: [
+          "A flexible wire used to connect components",
+          "A complete path through which electric current flows from a power source through electrical components and back to the source",
+          "A component that stores electrical energy",
+          "A resistor color-coding system"
+        ],
+        answer: 1,
+        explanation: "An electric circuit is a complete path through which electric current flows from a power source through electrical components and back to the source."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which basic part of a circuit provides electrical energy?",
+        options: [
+          "Switch",
+          "Load/Component",
+          "Power Source",
+          "Conductors/Wires"
+        ],
+        answer: 2,
+        explanation: "The Power Source provides electrical energy."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which basic part of a circuit provides a path for current?",
+        options: [
+          "Conductors/Wires",
+          "Switch",
+          "Load/Component",
+          "Power Source"
+        ],
+        answer: 0,
+        explanation: "Conductors/Wires provide a path for current."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which basic part of a circuit uses electrical energy?",
+        options: [
+          "Power Source",
+          "Load/Component",
+          "Conductors/Wires",
+          "Switch"
+        ],
+        answer: 1,
+        explanation: "The Load/Component uses electrical energy."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which basic part of a circuit controls the flow of current?",
+        options: [
+          "Power Source",
+          "Load/Component",
+          "Switch",
+          "Conductors/Wires"
+        ],
+        answer: 2,
+        explanation: "The Switch controls the flow of current."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is a series circuit?",
+        options: [
+          "A circuit with two or more paths for current to flow through",
+          "A circuit that contains only one current path",
+          "A circuit with no power source",
+          "A circuit made only from capacitors"
+        ],
+        answer: 1,
+        explanation: "A series circuit contains only one current path."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What happens in a series circuit if one bulb blows?",
+        options: [
+          "The other bulbs stay lit.",
+          "The voltage becomes the same across every component.",
+          "It breaks the whole circuit, and all the bulbs go out.",
+          "Only the power rail is affected."
+        ],
+        answer: 2,
+        explanation: "If one bulb blows in a series circuit, it breaks the whole circuit, and all the bulbs go out."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is a parallel circuit?",
+        options: [
+          "A circuit with only one current path",
+          "A circuit with two or more paths for current to flow through",
+          "A circuit with no complete path",
+          "A circuit that uses only fixed resistors"
+        ],
+        answer: 1,
+        explanation: "A parallel circuit has two or more paths for current to flow through."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the voltage across each component of a parallel circuit?",
+        options: [
+          "The voltage is different across each component.",
+          "There is no voltage.",
+          "The voltage is the same across each component.",
+          "The voltage is controlled only by a switch."
+        ],
+        answer: 2,
+        explanation: "Voltage is the same across each component of the parallel circuit."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "If one bulb blows in a parallel circuit, what happens to the other bulb?",
+        options: [
+          "It stays lit because there is still a complete circuit to the other bulb.",
+          "It also goes out because the whole circuit breaks.",
+          "It becomes a series circuit.",
+          "It has no voltage."
+        ],
+        answer: 0,
+        explanation: "There would still be a complete circuit to the other bulb, so it stays lit."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the main purpose of jumper wires?",
+        options: [
+          "To temporarily store electrical energy",
+          "To provide electrical connections between components",
+          "To control the flow of current as a switch",
+          "To mark resistor numerical values"
+        ],
+        answer: 1,
+        explanation: "The main purpose of jumper wires is to provide electrical connections between components."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which set lists the jumper wire types commonly available?",
+        options: [
+          "M-M, M-F, and F-F",
+          "M-M, M-M, and F-F",
+          "F-F, F-F, and M-F",
+          "Red, blue, and green"
+        ],
+        answer: 0,
+        explanation: "The jumper wire types are Male-to-Male (M-M), Male-to-Female (M-F), and Female-to-Female (F-F)."
+      },
+
+      {
+        type: "true_false",
+        question: "A resistor limits or controls the flow of electric current in a circuit.",
+        answer: true,
+        explanation: "A resistor limits or controls the flow of electric current in a circuit."
+      },
+
+      {
+        type: "true_false",
+        question: "The unit of resistance is the ohm (Ω).",
+        answer: true,
+        explanation: "Ω (ohm) is the unit of resistance."
+      },
+
+      {
+        type: "true_false",
+        question: "A fixed resistor has an adjustable resistance value.",
+        answer: false,
+        explanation: "A fixed resistor has a fixed resistance value that cannot be adjusted."
+      },
+
+      {
+        type: "true_false",
+        question: "A variable resistor allows you to increase or decrease the flow of current in a circuit.",
+        answer: true,
+        explanation: "A variable resistor has an adjustable resistance value, allowing you to increase or decrease the flow of current in a circuit."
+      },
+
+      {
+        type: "true_false",
+        question: "A thermistor is a type of resistor whose resistance is dependent on temperature.",
+        answer: true,
+        explanation: "A thermistor is a type of resistor whose resistance is dependent on temperature."
+      },
+
+      {
+        type: "true_false",
+        question: "Colors in the resistor color-coding system represent numerical values.",
+        answer: true,
+        explanation: "The colors represent numerical values."
+      },
+
+      {
+        type: "true_false",
+        question: "Capacitors temporarily store electrical energy in the form of a static electric field.",
+        answer: true,
+        explanation: "Capacitors temporarily store electrical energy in the form of a static electric field."
+      },
+
+      {
+        type: "true_false",
+        question: "A breadboard is also referred to as a solderless breadboard.",
+        answer: true,
+        explanation: "A breadboard is also referred to as a solderless breadboard."
+      },
+
+      {
+        type: "true_false",
+        question: "A series circuit contains two or more paths for current to flow through.",
+        answer: false,
+        explanation: "A series circuit contains only one current path."
+      },
+
+      {
+        type: "true_false",
+        question: "If one bulb blows in a series circuit, all the bulbs go out.",
+        answer: true,
+        explanation: "If one bulb blows, it breaks the whole circuit, and all the bulbs go out."
+      },
+
+      {
+        type: "true_false",
+        question: "A parallel circuit has two or more paths for current to flow through.",
+        answer: true,
+        explanation: "A parallel circuit has two or more paths for current to flow through."
+      },
+
+      {
+        type: "true_false",
+        question: "The voltage is the same across each component of a parallel circuit.",
+        answer: true,
+        explanation: "Voltage is the same across each component of the parallel circuit."
+      },
+
+      {
+        type: "true_false",
+        question: "If one bulb blows in a parallel circuit, the other bulb must also go out.",
+        answer: false,
+        explanation: "There would still be a complete circuit to the other bulb, so it stays lit."
+      },
+
+      {
+        type: "true_false",
+        question: "Jumper wires are flexible wires used to connect electronic components together on a breadboard.",
+        answer: true,
+        explanation: "Jumper wires are flexible wires used to connect electronic components together on a breadboard."
+      },
+
+      {
+        type: "true_false",
+        question: "Jumper wires can connect components and a microcontroller such as an ESP32 or Arduino.",
+        answer: true,
+        explanation: "Jumper wires can connect components and a microcontroller such as an ESP32 or Arduino."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 5 basic electronic components identified in Unit 1.",
+        answers: [
+          "Resistors",
+          "Capacitors",
+          "LEDs",
+          "Breadboards",
+          "Jumper wires"
+        ],
+        minRequired: 5,
+        explanation: "The five components are resistors, capacitors, LEDs, breadboards, and jumper wires."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 2 types of resistors presented in Unit 1.",
+        answers: [
+          "Fixed Resistor",
+          "Variable Resistor"
+        ],
+        minRequired: 2,
+        explanation: "The two types are Fixed Resistor and Variable Resistor."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 4 basic parts of an electric circuit.",
+        answers: [
+          "Power Source",
+          "Conductors/Wires",
+          "Load/Component",
+          "Switch"
+        ],
+        minRequired: 4,
+        explanation: "The four basic parts are Power Source, Conductors/Wires, Load/Component, and Switch."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 2 main sections of a breadboard.",
+        answers: [
+          "Terminal strips",
+          "Power rails"
+        ],
+        minRequired: 2,
+        explanation: "The two main sections are Terminal strips and Power rails."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 3 common types of jumper wires.",
+        answers: [
+          "Male-to-Male (M-M)",
+          "Male-to-Female (M-F)",
+          "Female-to-Female (F-F)"
+        ],
+        minRequired: 3,
+        explanation: "The three common types are Male-to-Male, Male-to-Female, and Female-to-Female."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the functions of the 4 basic parts of an electric circuit.",
+        answers: [
+          "Power Source – provides electrical energy",
+          "Conductors/Wires – provide a path for current",
+          "Load/Component – uses electrical energy",
+          "Switch – controls the flow of current"
+        ],
+        minRequired: 4,
+        explanation: "These are the functions of the four basic parts of an electric circuit."
+      }
+    ]
+  },
+  {
+    id: "unit2",
+    title: "Introduction to IoT & ESP32",
+    subtitle: "Module 3, Unit 2",
+    emoji: "🌐",
+    color: "#0A84FF",
+    week: "Week 11",
+    description: "Test your knowledge on the Internet of Things, IoT system elements, everyday IoT usage examples, ESP32 microcontroller, and Arduino IDE.",
+
+    questions: [
+
+      // --- MULTIPLE CHOICE ---
+
+      {
+        type: "multiple_choice",
+        question: "What is the Internet of Things (IoT)?",
+        options: [
+          "A vast network of physical objects embedded with sensors, software, and network connectivity",
+          "A powerful microcontroller developed by Espressif",
+          "A text editor for writing code",
+          "A mobile app or dashboard"
+        ],
+        answer: 0,
+        explanation: "The Internet of Things (IoT) is a vast network of physical objects—such as appliances, vehicles, and industrial machinery—embedded with sensors, software, and network connectivity."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What can IoT objects do over the internet?",
+        options: [
+          "Only display status updates",
+          "Collect and share data",
+          "Only control motors",
+          "Only write code"
+        ],
+        answer: 1,
+        explanation: "IoT objects can collect and share data over the internet without needing human help."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which of the following is an example of a physical object in the definition of IoT?",
+        options: [
+          "Text console",
+          "Toolbar",
+          "Appliances",
+          "Sketch"
+        ],
+        answer: 2,
+        explanation: "Appliances, vehicles, and industrial machinery are examples of physical objects in the definition of IoT."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which IoT element collects data from the environment?",
+        options: [
+          "Sensors/Devices",
+          "Connectivity",
+          "Data Processing",
+          "User Interface"
+        ],
+        answer: 0,
+        explanation: "Sensors/Devices collect data from the environment."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which of the following is an example of Sensors/Devices?",
+        options: [
+          "Wi-Fi",
+          "Mobile app",
+          "Temperature sensor",
+          "Cloud software"
+        ],
+        answer: 2,
+        explanation: "Temperature sensor, motion detector, and GPS are examples of Sensors/Devices."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is Connectivity in an IoT system?",
+        options: [
+          "The mobile app or dashboard where users view status updates",
+          "The pathway for data to reach the cloud",
+          "The software that analyzes data",
+          "The device that collects data"
+        ],
+        answer: 1,
+        explanation: "Connectivity is the pathway for data to reach the cloud."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which of the following can be used for Connectivity?",
+        options: [
+          "Wi-Fi, Bluetooth, or cellular networks",
+          "Temperature sensor, motion detector, or GPS",
+          "Mobile app or dashboard",
+          "Cloud software only"
+        ],
+        answer: 0,
+        explanation: "Connectivity uses Wi-Fi, Bluetooth, or cellular networks."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Data Processing do in an IoT system?",
+        options: [
+          "Collects data from the environment",
+          "Provides the pathway for data to reach the cloud",
+          "Analyzes the data to determine what action to take",
+          "Displays the sketch name"
+        ],
+        answer: 2,
+        explanation: "Cloud software analyzes the data to determine what action to take."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the User Interface in an IoT system?",
+        options: [
+          "The mobile app or dashboard where users can view status updates or send commands",
+          "The pathway for data to reach the cloud",
+          "The device that collects data",
+          "The cloud software that analyzes data"
+        ],
+        answer: 0,
+        explanation: "The User Interface is the mobile app or dashboard where users can view status updates or send commands."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which category includes Smart Thermostat / Aircon?",
+        options: [
+          "Healthcare",
+          "Agriculture",
+          "Transportation",
+          "Smart Home"
+        ],
+        answer: 3,
+        explanation: "Smart Thermostat / Aircon is listed under Smart Home."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Smart Thermostat / Aircon do?",
+        options: [
+          "Tracks the location and fuel levels of delivery trucks",
+          "Adjusts cooling automatically based on room occupancy or weather",
+          "Monitors heart rate",
+          "Waters crops when soil sensors detect dry conditions"
+        ],
+        answer: 1,
+        explanation: "Smart Thermostat / Aircon adjusts cooling automatically based on room occupancy or weather."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which category includes Wearable Fitness Tracker?",
+        options: [
+          "Healthcare",
+          "Smart Home",
+          "Transportation",
+          "Agriculture"
+        ],
+        answer: 0,
+        explanation: "Wearable Fitness Tracker is listed under Healthcare."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does a Wearable Fitness Tracker do?",
+        options: [
+          "Tracks delivery trucks",
+          "Adjusts cooling",
+          "Monitors heart rate and alerts you if there are abnormalities",
+          "Waters crops"
+        ],
+        answer: 2,
+        explanation: "A Wearable Fitness Tracker monitors heart rate and alerts you if there are abnormalities."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which category includes Fleet Tracking Systems?",
+        options: [
+          "Agriculture",
+          "Transportation",
+          "Healthcare",
+          "Smart Home"
+        ],
+        answer: 1,
+        explanation: "Fleet Tracking Systems are listed under Transportation."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Fleet Tracking Systems do?",
+        options: [
+          "Tracks the location and fuel levels of delivery trucks in real time",
+          "Monitors heart rate",
+          "Adjusts cooling automatically",
+          "Waters crops automatically"
+        ],
+        answer: 0,
+        explanation: "Fleet Tracking Systems track the location and fuel levels of delivery trucks in real time."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which category includes Automated Irrigation?",
+        options: [
+          "Healthcare",
+          "Smart Home",
+          "Agriculture",
+          "Transportation"
+        ],
+        answer: 2,
+        explanation: "Automated Irrigation is listed under Agriculture."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Automated Irrigation do?",
+        options: [
+          "Monitors heart rate",
+          "Tracks delivery trucks",
+          "Adjusts cooling",
+          "Waters crops automatically when soil sensors detect dry conditions"
+        ],
+        answer: 3,
+        explanation: "Automated Irrigation waters crops automatically when soil sensors detect dry conditions."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Who developed the ESP32?",
+        options: [
+          "Arduino",
+          "Espressif",
+          "Genuino",
+          "Electronic Industries Alliance"
+        ],
+        answer: 1,
+        explanation: "ESP32 is a powerful microcontroller developed by Espressif."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is ESP32?",
+        options: [
+          "A powerful microcontroller",
+          "A mobile app",
+          "A cloud software",
+          "A text console"
+        ],
+        answer: 0,
+        explanation: "ESP32 is a powerful microcontroller developed by Espressif."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which combination is built into the ESP32 in a single chip?",
+        options: [
+          "Text editor, message area, and text console",
+          "Processor, memory, input/output (I/O) peripherals, Wi-Fi, and Bluetooth",
+          "Mobile app, dashboard, and cloud software",
+          "Sensors, actuators, and delivery trucks"
+        ],
+        answer: 1,
+        explanation: "ESP32 combines a processor, memory, input/output (I/O) peripherals, and built-in Wi-Fi and Bluetooth in a single chip."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the ESP32 serve as in IoT projects?",
+        options: [
+          "The message area",
+          "The brain of IoT projects",
+          "The User Interface",
+          "The text console"
+        ],
+        answer: 1,
+        explanation: "The ESP32 serves as the brain of IoT projects."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the ESP32 process?",
+        options: [
+          "Programmed instructions",
+          "Only serial information",
+          "Only status updates",
+          "Only error messages"
+        ],
+        answer: 0,
+        explanation: "The ESP32 processes programmed instructions."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which devices can the ESP32 control?",
+        options: [
+          "Sensors, LEDs, motors, and other connected devices",
+          "Only sensors",
+          "Only LEDs",
+          "Only motors"
+        ],
+        answer: 0,
+        explanation: "The ESP32 controls sensors, LEDs, motors, and other connected devices."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Arduino IDE stand for?",
+        options: [
+          "Arduino Integrated Development Environment",
+          "Arduino Internet Development Environment",
+          "Arduino Integrated Device Electronics",
+          "Arduino Internet Device Environment"
+        ],
+        answer: 0,
+        explanation: "Arduino IDE means Arduino Integrated Development Environment."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Arduino IDE also called?",
+        options: [
+          "Arduino Software (IDE)",
+          "Arduino Cloud Software",
+          "Arduino User Interface",
+          "Arduino Text Console"
+        ],
+        answer: 0,
+        explanation: "The presentation refers to the Arduino Integrated Development Environment as Arduino Software (IDE)."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Which part of the Arduino IDE is used for writing code?",
+        options: [
+          "Message area",
+          "Text editor",
+          "Text console",
+          "Serial Monitor"
+        ],
+        answer: 1,
+        explanation: "The Arduino IDE contains a text editor for writing code."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Arduino IDE contain besides a text editor?",
+        options: [
+          "A message area, text console, toolbar, and menus",
+          "Only a Serial Monitor",
+          "Only a sketch folder",
+          "Only a code area"
+        ],
+        answer: 0,
+        explanation: "The Arduino IDE contains a text editor, message area, text console, toolbar with buttons for common functions, and a series of menus."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What hardware does the Arduino IDE connect to?",
+        options: [
+          "Arduino and Genuino hardware",
+          "Only ESP32 hardware",
+          "Only sensors",
+          "Only motors"
+        ],
+        answer: 0,
+        explanation: "The Arduino IDE connects to Arduino and Genuino hardware to upload programs and communicate with them."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Edit section used for?",
+        options: [
+          "Copying and pasting the code with further modification for font",
+          "Opening the current sketch folder",
+          "Uploading the binary file",
+          "Burning the bootloader"
+        ],
+        answer: 0,
+        explanation: "The Edit section is used for copying and pasting the code with further modification for font."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Verify / Compile do?",
+        options: [
+          "Opens the current sketch folder",
+          "Checks the sketch for errors while compiling it",
+          "Adds a source file to the sketch",
+          "Opens the Serial Monitor"
+        ],
+        answer: 1,
+        explanation: "Verify / Compile checks your sketch for errors while compiling it."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Verify / Compile report in the console area?",
+        options: [
+          "Memory usage for code and variables",
+          "Only the sketch name",
+          "Only the board name",
+          "Only the Port"
+        ],
+        answer: 0,
+        explanation: "Verify / Compile also reports memory usage for code and variables in the console area."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Upload do?",
+        options: [
+          "Compiles and loads the binary file onto the configured board through the configured Port",
+          "Opens an existing sketch",
+          "Adds a source file",
+          "Shows complete error messages"
+        ],
+        answer: 0,
+        explanation: "Upload compiles and loads the binary file onto the configured board through the configured Port."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What happens when Upload is clicked?",
+        options: [
+          "The lights on the board should blink rapidly.",
+          "The sketch folder closes.",
+          "The bootloader is overwritten.",
+          "The text editor closes."
+        ],
+        answer: 0,
+        explanation: "When Upload is clicked, the lights on the board should blink rapidly."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Upload Using Programmer do?",
+        options: [
+          "Opens a new code window tab",
+          "Overwrites the bootloader on the board",
+          "Displays serial information",
+          "Checks syntax errors"
+        ],
+        answer: 1,
+        explanation: "Upload Using Programmer overwrites the bootloader on the board."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is needed to restore the bootloader after using Upload Using Programmer?",
+        options: [
+          "Tools > Burn Bootloader",
+          "File > Open",
+          "Edit > Copy",
+          "Help > Troubleshooting"
+        ],
+        answer: 0,
+        explanation: "Tools > Burn Bootloader is needed to restore the bootloader and be able to Upload to USB serial port again."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Export Compiled Binary do?",
+        options: [
+          "Saves a hex file that may be kept as archive or sent to the board using other tools",
+          "Opens a new code window tab",
+          "Shows complete error messages",
+          "Adds a library"
+        ],
+        answer: 0,
+        explanation: "Export Compiled Binary saves a hex file that may be kept as archive or sent to the board using other tools."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Show Sketch Folder do?",
+        options: [
+          "Opens the current sketch folder",
+          "Uploads the sketch",
+          "Checks the sketch for errors",
+          "Opens the Serial Monitor"
+        ],
+        answer: 0,
+        explanation: "Show Sketch Folder opens the current sketch folder."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Include Library do?",
+        options: [
+          "Adds a library to your sketch by inserting #include statements at the start of your code",
+          "Overwrites the bootloader",
+          "Opens the current sketch folder",
+          "Saves a hex file"
+        ],
+        answer: 0,
+        explanation: "Include Library adds a library to your sketch by inserting #include statements at the start of your code."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does Add File do?",
+        options: [
+          "Adds a source file to the sketch",
+          "Checks the sketch for errors",
+          "Opens the Serial Monitor",
+          "Burns the bootloader"
+        ],
+        answer: 0,
+        explanation: "Add File adds a source file to the sketch, and it will be copied from its current location."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Tools section mainly used for?",
+        options: [
+          "Testing projects",
+          "Writing code",
+          "Copying and pasting code",
+          "Displaying serial information"
+        ],
+        answer: 0,
+        explanation: "The Tools section is mainly used for testing projects."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Programmer section in the Tools panel used for?",
+        options: [
+          "Burning a bootloader to the new microcontroller",
+          "Opening a new code window",
+          "Viewing status updates",
+          "Writing code"
+        ],
+        answer: 0,
+        explanation: "The Programmer section is used for burning a bootloader to the new microcontroller."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Help section used for?",
+        options: [
+          "Getting started to troubleshooting",
+          "Uploading the binary file",
+          "Adding a source file",
+          "Opening the sketch folder"
+        ],
+        answer: 0,
+        explanation: "The Help section provides complete help from getting started to troubleshooting."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Verify button do?",
+        options: [
+          "Compiles and checks your code",
+          "Sends your code to the board",
+          "Opens an existing sketch",
+          "Opens a new code window"
+        ],
+        answer: 0,
+        explanation: "Verify compiles and checks your code."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What kind of errors can Verify catch?",
+        options: [
+          "Errors in syntax like missing semi-colons or parenthesis",
+          "Only network errors",
+          "Only hardware errors",
+          "Only serial information"
+        ],
+        answer: 0,
+        explanation: "Verify catches errors in syntax, such as missing semi-colons or parenthesis."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the New button do?",
+        options: [
+          "Opens a new code window tab",
+          "Opens an existing sketch",
+          "Uploads code to the board",
+          "Displays serial information"
+        ],
+        answer: 0,
+        explanation: "The New button opens a new code window tab."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Open button do?",
+        options: [
+          "Opens an existing sketch",
+          "Creates a new code window",
+          "Uploads code",
+          "Checks code for errors"
+        ],
+        answer: 0,
+        explanation: "The Open button lets you open an existing sketch."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Serial Monitor display?",
+        options: [
+          "Any serial information the Arduino or ESP32 board is transmitting",
+          "Only complete error messages",
+          "Only the sketch name",
+          "Only memory usage"
+        ],
+        answer: 0,
+        explanation: "The Serial Monitor opens a window that displays any serial information your Arduino or ESP32 board is transmitting."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Serial Monitor useful for?",
+        options: [
+          "Debugging",
+          "Burning the bootloader",
+          "Creating a new sketch",
+          "Copying code"
+        ],
+        answer: 0,
+        explanation: "The Serial Monitor is very useful for debugging."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Sketch Name show?",
+        options: [
+          "The name of the sketch you are currently working on",
+          "The name of the configured Port",
+          "The complete error message",
+          "The memory usage"
+        ],
+        answer: 0,
+        explanation: "Sketch Name shows the name of the sketch you are currently working on."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Where do you write your codes?",
+        options: [
+          "Code Area",
+          "Message Area",
+          "Text Console",
+          "Serial Monitor"
+        ],
+        answer: 0,
+        explanation: "The Code Area is where you write your codes."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "Where does the IDE tell you if there were any errors in your code?",
+        options: [
+          "Code Area",
+          "Message Area / Status Bar",
+          "Sketch Name",
+          "Menu Bar"
+        ],
+        answer: 1,
+        explanation: "The Message Area / Status Bar is where the IDE tells you if there were any errors in your code."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What does the Text Console show?",
+        options: [
+          "Complete error messages",
+          "Only the sketch name",
+          "Only the code",
+          "Only status updates"
+        ],
+        answer: 0,
+        explanation: "The text console shows complete error messages."
+      },
+
+      {
+        type: "multiple_choice",
+        question: "What is the Text Console useful for?",
+        options: [
+          "Debugging",
+          "Opening sketches",
+          "Creating IoT objects",
+          "Sending commands through the User Interface"
+        ],
+        answer: 0,
+        explanation: "When debugging, the text console is very useful."
+      },
+
+      // --- TRUE/FALSE ---
+
+      {
+        type: "true_false",
+        question: "The Internet of Things is a vast network of physical objects embedded with sensors, software, and network connectivity.",
+        answer: true,
+        explanation: "The presentation defines IoT as a vast network of physical objects embedded with sensors, software, and network connectivity."
+      },
+
+      {
+        type: "true_false",
+        question: "IoT objects can collect and share data over the internet without needing human help.",
+        answer: true,
+        explanation: "The presentation states that IoT allows objects to collect and share data over the internet without needing human help."
+      },
+
+      {
+        type: "true_false",
+        question: "Sensors/Devices provide the pathway for data to reach the cloud.",
+        answer: false,
+        explanation: "Connectivity provides the pathway for data to reach the cloud."
+      },
+
+      {
+        type: "true_false",
+        question: "Connectivity can use Wi-Fi, Bluetooth, or cellular networks.",
+        answer: true,
+        explanation: "The presentation lists Wi-Fi, Bluetooth, and cellular networks for Connectivity."
+      },
+
+      {
+        type: "true_false",
+        question: "Cloud software analyzes data to determine what action to take.",
+        answer: true,
+        explanation: "Data Processing uses cloud software to analyze the data and determine what action to take."
+      },
+
+      {
+        type: "true_false",
+        question: "The User Interface is the mobile app or dashboard where users can view status updates or send commands.",
+        answer: true,
+        explanation: "This is the definition of the User Interface in an IoT system."
+      },
+
+      {
+        type: "true_false",
+        question: "A Smart Thermostat / Aircon tracks the location and fuel levels of delivery trucks in real time.",
+        answer: false,
+        explanation: "Fleet Tracking Systems track the location and fuel levels of delivery trucks in real time."
+      },
+
+      {
+        type: "true_false",
+        question: "A Wearable Fitness Tracker monitors heart rate and alerts you if there are abnormalities.",
+        answer: true,
+        explanation: "This is the function given for the Wearable Fitness Tracker."
+      },
+
+      {
+        type: "true_false",
+        question: "Automated Irrigation waters crops automatically when soil sensors detect dry conditions.",
+        answer: true,
+        explanation: "This is the function given for Automated Irrigation."
+      },
+
+      {
+        type: "true_false",
+        question: "ESP32 was developed by Espressif.",
+        answer: true,
+        explanation: "ESP32 is a powerful microcontroller developed by Espressif."
+      },
+
+      {
+        type: "true_false",
+        question: "ESP32 has built-in Wi-Fi and Bluetooth in a single chip.",
+        answer: true,
+        explanation: "The ESP32 combines built-in Wi-Fi and Bluetooth in a single chip."
+      },
+
+      {
+        type: "true_false",
+        question: "ESP32 serves as the brain of IoT projects.",
+        answer: true,
+        explanation: "The presentation states that ESP32 serves as the brain of IoT projects."
+      },
+
+      {
+        type: "true_false",
+        question: "The Arduino IDE contains only a text editor for writing code.",
+        answer: false,
+        explanation: "The Arduino IDE contains a text editor, message area, text console, toolbar, and a series of menus."
+      },
+
+      {
+        type: "true_false",
+        question: "The Arduino IDE connects to Arduino and Genuino hardware to upload programs and communicate with them.",
+        answer: true,
+        explanation: "The presentation states that the Arduino IDE connects to Arduino and Genuino hardware to upload programs and communicate with them."
+      },
+
+      {
+        type: "true_false",
+        question: "Verify / Compile checks the sketch for errors while compiling it.",
+        answer: true,
+        explanation: "Verify / Compile checks the sketch for errors while compiling it."
+      },
+
+      {
+        type: "true_false",
+        question: "Upload opens the current sketch folder.",
+        answer: false,
+        explanation: "Show Sketch Folder opens the current sketch folder. Upload compiles and loads the binary file onto the configured board."
+      },
+
+      {
+        type: "true_false",
+        question: "Upload Using Programmer overwrites the bootloader on the board.",
+        answer: true,
+        explanation: "Upload Using Programmer overwrites the bootloader on the board."
+      },
+
+      {
+        type: "true_false",
+        question: "Tools > Burn Bootloader can restore the bootloader after using Upload Using Programmer.",
+        answer: true,
+        explanation: "The presentation states that Tools > Burn Bootloader is needed to restore the bootloader."
+      },
+
+      {
+        type: "true_false",
+        question: "Export Compiled Binary saves a hex file.",
+        answer: true,
+        explanation: "Export Compiled Binary saves a hex file that may be kept as an archive or sent to the board using other tools."
+      },
+
+      {
+        type: "true_false",
+        question: "Include Library adds a library to the sketch by inserting #include statements at the start of the code.",
+        answer: true,
+        explanation: "This is the function of Include Library."
+      },
+
+      {
+        type: "true_false",
+        question: "Add File adds a source file to the sketch.",
+        answer: true,
+        explanation: "Add File adds a source file to the sketch, copied from its current location."
+      },
+
+      {
+        type: "true_false",
+        question: "The Tools section is mainly used for testing projects.",
+        answer: true,
+        explanation: "The Tools section is mainly used for testing projects."
+      },
+
+      {
+        type: "true_false",
+        question: "The Help section provides complete help from getting started to troubleshooting.",
+        answer: true,
+        explanation: "The Help section provides complete help from getting started to troubleshooting."
+      },
+
+      {
+        type: "true_false",
+        question: "The Serial Monitor displays serial information transmitted by the Arduino or ESP32 board.",
+        answer: true,
+        explanation: "The Serial Monitor displays serial information transmitted by the Arduino or ESP32 board."
+      },
+
+      {
+        type: "true_false",
+        question: "The Code Area is where complete error messages are displayed.",
+        answer: false,
+        explanation: "The Code Area is where codes are written. The Text Console shows complete error messages."
+      },
+
+      // --- ENUMERATION ---
+
+      {
+        type: "enumeration",
+        question: "List the 4 key elements of an IoT system.",
+        answers: [
+          "Sensors/Devices",
+          "Connectivity",
+          "Data Processing",
+          "User Interface"
+        ],
+        minRequired: 4,
+        explanation: "The four key elements are Sensors/Devices, Connectivity, Data Processing, and User Interface."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 4 everyday IoT usage examples presented in Unit 2.",
+        answers: [
+          "Smart Thermostat / Aircon",
+          "Wearable Fitness Tracker",
+          "Fleet Tracking Systems",
+          "Automated Irrigation"
+        ],
+        minRequired: 4,
+        explanation: "The four everyday usage examples are Smart Thermostat / Aircon, Wearable Fitness Tracker, Fleet Tracking Systems, and Automated Irrigation."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 4 categories of the everyday IoT usage examples.",
+        answers: [
+          "Smart Home",
+          "Healthcare",
+          "Transportation",
+          "Agriculture"
+        ],
+        minRequired: 4,
+        explanation: "The four categories are Smart Home, Healthcare, Transportation, and Agriculture."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 5 things combined in the ESP32 single chip.",
+        answers: [
+          "Processor",
+          "Memory",
+          "Input/output (I/O) peripherals",
+          "Wi-Fi",
+          "Bluetooth"
+        ],
+        minRequired: 5,
+        explanation: "ESP32 combines a processor, memory, input/output (I/O) peripherals, built-in Wi-Fi, and Bluetooth in a single chip."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 4 things the ESP32 can control according to the presentation.",
+        answers: [
+          "Sensors",
+          "LEDs",
+          "Motors",
+          "Other connected devices"
+        ],
+        minRequired: 4,
+        explanation: "The ESP32 processes programmed instructions and controls sensors, LEDs, motors, and other connected devices."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 5 components of the Arduino IDE mentioned in the presentation.",
+        answers: [
+          "Text editor",
+          "Message area",
+          "Text console",
+          "Toolbar with buttons for common functions",
+          "Series of menus"
+        ],
+        minRequired: 5,
+        explanation: "The Arduino IDE contains a text editor, message area, text console, toolbar with buttons for common functions, and a series of menus."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 7 functions under the Arduino IDE sections presented in Unit 2.",
+        answers: [
+          "Verify / Compile",
+          "Upload",
+          "Upload Using Programmer",
+          "Export Compiled Binary",
+          "Show Sketch Folder",
+          "Include Library",
+          "Add File"
+        ],
+        minRequired: 7,
+        explanation: "The presentation discusses Verify / Compile, Upload, Upload Using Programmer, Export Compiled Binary, Show Sketch Folder, Include Library, and Add File."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 10 Arduino IDE interface parts/functions presented in Unit 2.",
+        answers: [
+          "Verify",
+          "Upload",
+          "New",
+          "Open",
+          "Serial Monitor",
+          "Sketch Name",
+          "Code Area",
+          "Message Area / Status Bar",
+          "Text Console"
+        ],
+        minRequired: 9,
+        explanation: "The presentation numbers the Arduino IDE interface as Verify, Upload, New, Open, Serial Monitor, Sketch Name, Code Area, Message Area / Status Bar, and Text Console."
+      },
+
+      {
+        type: "enumeration",
+        question: "List the 3 learning objectives of Unit 2.",
+        answers: [
+          "Explain the basic concepts and applications of the Internet of Things (IoT).",
+          "Identify the features, components, and functions of the ESP32 microcontroller.",
+          "Demonstrate basic ESP32 programming and connect simple electronic components to create an IoT-based system."
+        ],
+        minRequired: 3,
+        explanation: "These are the three learning objectives presented in Unit 2."
+      }
+
+    ]
+  },
+
+  {
+    id: "unit1",
     title: "Distributed Database System",
     subtitle: "Module 3, Unit 1",
     emoji: "🌐",
@@ -2204,5 +3719,4 @@ export const quizzes = [
   }
 ]
   }
-
 ];

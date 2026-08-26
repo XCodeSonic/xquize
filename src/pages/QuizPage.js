@@ -17,7 +17,6 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
 
   const question = quiz.questions[currentIdx];
   const totalQ = quiz.questions.length;
-  const answered = answers[currentIdx] !== undefined;
   const revealed = showAnswer[currentIdx];
 
   // Start countdown only once per question (not per answer change)
@@ -41,8 +40,9 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
 
   // Cleanup intervals
   useEffect(() => {
+    const intervals = intervalRef.current;
     return () => {
-      Object.values(intervalRef.current).forEach(clearInterval); 
+      Object.values(intervals).forEach(clearInterval);
     };
   }, []);
 
@@ -404,7 +404,6 @@ function IDQuestion({ question, answer, revealed, inputValue, onInput, onSubmit,
 /* ===== ENUMERATION QUESTION ===== */
 function EnumQuestion({ question, answer, revealed, inputs, onInputChange, onAddInput, onRemoveInput, onSubmit, timerLeft, timerRunning }) {
   if (revealed) {
-    const userAnswers = (answer || []).map(a => a.toLowerCase());
     const accepted = (question.answers || []).map(a => a.toLowerCase());
     const matched = (answer || []).filter((_, i) =>
       accepted.some(a => {
