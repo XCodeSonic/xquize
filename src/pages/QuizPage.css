@@ -656,9 +656,13 @@
   background: rgba(255,255,255,0.2);
   border-color: rgba(255,255,255,0.3);
 }
-.dot.revealed {
+.dot.correct {
   background: var(--green);
   border-color: var(--green);
+}
+.dot.wrong {
+  background: var(--red);
+  border-color: var(--red);
 }
 
 /* ===== RESPONSIVE ===== */

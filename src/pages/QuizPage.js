@@ -126,6 +126,27 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
 
   const progress = ((Object.keys(answers).length) / totalQ) * 100;
 
+  // Determine correctness for a given question index (mirrors handleFinish logic)
+  const isQuestionCorrect = (i) => {
+    const q = quiz.questions[i];
+    const ans = answers[i];
+    if (ans === undefined) return false;
+    if (q.type === 'multiple_choice') {
+      return ans === q.answer;
+    } else if (q.type === 'true_false') {
+      return ans === q.answer;
+    } else if (q.type === 'identification') {
+      const accepted = q.acceptedAnswers || [q.answer];
+      return accepted.some(a => a.toLowerCase() === (ans || '').toLowerCase());
+    } else if (q.type === 'enumeration') {
+      const userAnswers = (ans || []).map(a => a.toLowerCase());
+      const accepted = (q.answers || []).map(a => a.toLowerCase());
+      const matched = userAnswers.filter(u => accepted.some(a => a.includes(u) || u.includes(a)));
+      return matched.length >= (q.minRequired || q.answers.length);
+    }
+    return false;
+  };
+
   return (
     <div className="quiz-page" style={{ '--quiz-color': quiz.color }}>
       {/* Top bar */}
@@ -249,10 +270,14 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
           </button>
 
           <div className="dot-nav">
-            {quiz.questions.map((_, i) => (
+            {quiz.questions.map((_, i) => {
+              const revealedI = showAnswer[i];
+              const correctI = revealedI && isQuestionCorrect(i);
+              const dotState = revealedI ? (correctI ? 'correct' : 'wrong') : '';
+              return (
               <button
                 key={i}
-                className={`dot ${i === currentIdx ? 'active' : ''} ${answers[i] !== undefined ? 'answered' : ''} ${showAnswer[i] ? 'revealed' : ''}`}
+                className={`dot ${i === currentIdx ? 'active' : ''} ${answers[i] !== undefined ? 'answered' : ''} ${dotState}`}
                 onClick={() => {
                   if (i === currentIdx) return;
                   setDirection(i > currentIdx ? 'forward' : 'backward');
@@ -261,7 +286,8 @@ export default function QuizPage({ quiz, onFinish, onHome }) {
                 }}
                 title={`Q${i + 1}`}
               />
-            ))}
+              );
+            })}
           </div>
 
           {currentIdx < totalQ - 1 ? (
